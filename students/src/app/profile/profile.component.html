@@ -1,0 +1,46 @@
+
+<html>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="search-wrapper">
+                <input id=name-input type="text" placeholder="Search by name" [(ngModel)]="searchText" (input)='search()'/>
+            </div>
+            <div class="search-wrapper">
+                    <input id=tag-input type="text" placeholder="Search by tags" [(ngModel)]="seTag" (input)='searchTag()'/>
+                </div>
+            <div class="card-wrapper">
+                <div class="card" *ngFor="let student of students">
+                    <div class="card-left">
+                        <img src={{student.pic}} class="card-img">
+                    </div>
+
+                    <div class="card-right">
+                        <h1>{{student.firstName|uppercase}} {{student.lastName|uppercase}}</h1>
+                       
+                        <div class="card-email">Email: {{student.email}}</div>
+                        <div class="card-company">Company: {{student.company}}</div>
+                        <div class="card-skill">Skill: {{student.skill}}</div>
+                        <div class="card-avg">Average: {{getAverage(student.grades)}}%</div>
+                        <div class="card-score" *ngIf='detail[student.id]'>
+                            <div *ngFor="let grade of student.grades;let i=index">Test  {{i+1}} {{grade}}%</div>
+                             <div *ngFor="let grade of student.grades;let i=index"></div> 
+                                <div class="card-tag" *ngFor="let stag of student.tags">{{stag}}</div>
+                               
+                            <input type="text" #taginput class="add-tag-input" placeholder="Add a tag" 
+                            (keyup.enter)="addTag(taginput.value,student.id);taginput.value=''"
+                            >
+                        </div>
+                       
+
+                    </div>
+          
+                    <button class="expand-btn" (click)="getDetail(student.id)" (click)="toggleClass($event)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
