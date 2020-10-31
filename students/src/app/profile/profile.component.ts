@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
   refreshStudents(){
     this.dataService.getAllStudents().subscribe(
       response=>{
-        console.log(response)
+        
 
         this.students=response['students'];
    
@@ -72,7 +72,6 @@ export class ProfileComponent implements OnInit {
         
       });
       this.students= this.searchStudent
-      console.log(this.searchStudent)
     }else if(this.searchText ==""){
       this.ngOnInit();
     }
@@ -85,7 +84,7 @@ export class ProfileComponent implements OnInit {
     }else{
       this.detail[i]=true;
     }
-    console.log(this.detail[i])
+    
   }
 
 
@@ -100,8 +99,7 @@ export class ProfileComponent implements OnInit {
     this.students[id-1].tags=this.tags;
  
 
-    console.log(this.tags)
-    console.log(this.students)
+ 
   }
 
 
@@ -118,7 +116,7 @@ export class ProfileComponent implements OnInit {
       return res.tags[i].match(this.seTag);
       }
     });
-    console.log(this.searchStudent)
+   
        
     this.students= this.searchStudent
    
