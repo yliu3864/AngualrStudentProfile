@@ -31,7 +31,6 @@ export class ProfileComponent implements OnInit {
   allstudents:Student[]=[];
   searchText: string;
   detail=new Array;
-  testDetail;
   seTag:string;
   tags=[];
   constructor(private dataService:DataService,private router:Router) { }
@@ -79,7 +78,6 @@ export class ProfileComponent implements OnInit {
 
     }else if(this.searchText ==""){
       
-      // location.reload();
 
     }
 
